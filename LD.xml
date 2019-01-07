@@ -32,8 +32,8 @@ end_breed_files
     <param format="txt" name="map_path" type="data" label="Map file (TXT)"/>
     <param name="chr" type="text" label="Number of chromosomes"/>	 
 
-    <param name="target_distLD" type="text" size="100" label="Target distance Linkage Disequilibrium - example: &quot;45000, 55000, 450000, 550000, 950000, 1050000, 4950000, 5050000&quot;" />
-    <param name="target_distPP" type="text" size="100" label="Target distance Persistence of Phase - example: &quot;0, 10000, 50000, 60000, 100000&quot;"/>
+    <param name="target_distLD" type="text" size="100" label="Target distance Linkage Disequilibrium - example: &quot;45000|55000|450000|550000|950000|1050000|4950000|5050000&quot;" />
+    <param name="target_distPP" type="text" size="100" label="Target distance Persistence of Phase - example: &quot;0|10000|50000|60000|100000&quot;"/>
      
 <repeat name="queries" title="Breed">
             <param name="input2" type="text" label="Breed Name" />
@@ -45,7 +45,7 @@ end_breed_files
       <option value="FALSE">FALSE</option>
     </param>
     
-    <param name="sparse_value" type="text" size="100" label="Leave it blank if the above option is FALSE, if TRUE - example: &quot;2,4,10&quot;"/>
+    <param name="sparse_value" type="text" size="100" label="Leave it blank if the above option is FALSE, if TRUE - example: &quot;2|4|10&quot;"/>
 
  </inputs>
   <outputs>
