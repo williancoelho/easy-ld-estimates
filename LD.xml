@@ -1,0 +1,92 @@
+<tool id="LD_labegen" name="Easy LD Estimates">
+  <description>measure of Linkage Disequilibrium</description>
+<command interpreter="perl">
+LD.pl
+$map_path
+$chr
+$target_distLD
+$target_distPP
+$run_sparse
+$sparse_value
+$out_file1
+$out_file2
+$out_file3
+$out_file4
+$out_file5
+$out_file6
+$out_file7
+$out_file8
+$out_file9
+$out_file10
+$out_file11
+#for $q in $queries
+            ${q.input2}
+        #end for
+end_breed_names
+#for $p in $queries
+	    ${p.chr_File}
+        #end for
+end_breed_files
+</command>
+  <inputs>
+    <param format="txt" name="map_path" type="data" label="Map file (TXT)"/>
+    <param name="chr" type="text" label="Number of chromosomes"/>	 
+
+    <param name="target_distLD" type="text" size="100" label="Target distance Linkage Disequilibrium - example: &quot;45000, 55000, 450000, 550000, 950000, 1050000, 4950000, 5050000&quot;" />
+    <param name="target_distPP" type="text" size="100" label="Target distance Persistence of Phase - example: &quot;0, 10000, 50000, 60000, 100000&quot;"/>
+     
+<repeat name="queries" title="Breed">
+            <param name="input2" type="text" label="Breed Name" />
+	    <param format="txt" name="chr_File" type="data" label="Chromossomes File"/>
+        </repeat>
+
+    <param name="run_sparse" type="select" label="Indicate below if you wish to derive sparse set of SNP by consequtively deleting markers from the map">
+      <option value="TRUE">TRUE</option>
+      <option value="FALSE">FALSE</option>
+    </param>
+    
+    <param name="sparse_value" type="text" size="100" label="Leave it blank if the above option is FALSE, if TRUE - example: &quot;2,4,10&quot;"/>
+
+ </inputs>
+  <outputs>
+      <data format="pdf" name="out_file1" label="LD Average_by_dist - PDF"/>
+      <data format="pdf" name="out_file2" label="LD Average_by_chr - PDF"/>
+      <data format="pdf" name="out_file3" label="LD Effective_Pop_Size - PDF"/>
+      <data format="pdf" name="out_file4" label="LD PersistenceofPhase - PDF"/>
+      <data format="txt" name="out_file5" label="LD average - TXT"/>
+      <data format="txt" name="out_file6" label="LD sparse - TXT"/>
+      <data format="txt" name="out_file7" label="LD table1 - TXT"/>
+      <data format="txt" name="out_file8" label="LD PercentPhasePersistence - TXT"/>
+      <data format="txt" name="out_file9" label="LD PersistenceofPhase_by_distance - TXT"/>
+      <data format="txt" name="out_file10" label="LD Timesincepopulationdiverged - TXT"/>
+      <data format="txt" name="out_file11" label="LD Ne_by_generation - TXT"/>
+      </outputs>
+  <tests>
+      <test>
+          <output name="out_file1" file="Average_LD_by_dist.pdf"/>
+          <output name="out_file2" file="Average_LD_by_chr.pdf"/>
+          <output name="out_file3" file="Effective_Pop_Size.pdf"/>
+          <output name="out_file4" file="PersistenceofPhase.pdf"/>
+          <output name="out_file5" file="LD_average.txt"/>
+          <output name="out_file6" file="LD_sparse.txt"/>
+          <output name="out_file7" file="LD_table1.txt"/>
+          <output name="out_file8" file="PercentPhasePersistence.txt"/>
+          <output name="out_file9" file="PersistenceofPhase_by_distance.txt"/>
+          <output name="out_file10" file="Timesincepopulationdiverged.txt"/>
+          <output name="out_file11" file="Ne_by_generation.txt"/>
+          
+    </test>
+  </tests>
+  <help>
+
+.. class:: infomark
+
+**What it does:**
+
+The Easy LD Estimates will estimate r2 as a measure of Linkage Disequilibrium (LD) calculating average r2 for all pairwise combinations of SNP, average r2 for adjacent SNP and correlation of phase for markers within a certain distance interval.
+
+**example:**
+
+There is no examples available.
+    </help>
+</tool>
